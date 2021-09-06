@@ -50,7 +50,7 @@ namespace LeapYear
                 int input = Convert.ToInt32(stringInput);
                 return input;
             }
-            catch (System.Exception ex)
+            catch
             {
                  Console.WriteLine("Please enter a number\n");
                  return 0;
