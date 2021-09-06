@@ -20,9 +20,14 @@ namespace LeapYear
                 Main(new string[0]);
             }
             */
-            
-            Console.WriteLine(isLeapYear(input));
-
+            if(isLeapYear(input)==true)
+            {
+                Console.WriteLine("yay");
+            }
+            else if(isLeapYear(input)==false)
+            {
+                Console.WriteLine("nay");
+            }
 
         }
 
