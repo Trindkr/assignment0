@@ -7,19 +7,31 @@ namespace LeapYear
     {
         public static void Main(string[] args)
         {
-            System.Console.WriteLine("Enter a year to check if it's a leap lear");
-            string stringInput = Console.ReadLine().Trim();
-            int input = Convert.ToInt32(stringInput);
-            /*try
+            string stringInput = "";
+            if(args.Length == 0)
             {
-               
+                System.Console.WriteLine("...Enter a year to check if it's a leap lear: ");
+                stringInput = Console.ReadLine().Trim();
             }
-            catch (System.Exception ex)
+            else
             {
-                System.Console.WriteLine("Please enter a number");
+                stringInput = args[0];
+            }
+
+            int input = convertInputToInt(stringInput);
+
+            if(input==0)
+            {
                 Main(new string[0]);
+                return;
             }
-            */
+            else if(input<=1582)
+            {
+                System.Console.WriteLine("Please Enter a number equal to or above 1582!\n");
+                Main(new string[0]);
+                return;
+            }
+            
             if(isLeapYear(input)==true)
             {
                 Console.WriteLine("yay");
@@ -29,6 +41,21 @@ namespace LeapYear
                 Console.WriteLine("nay");
             }
 
+        }
+
+        public static int convertInputToInt(string stringInput)
+        {
+            try
+            {
+                int input = Convert.ToInt32(stringInput);
+                return input;
+            }
+            catch (System.Exception ex)
+            {
+                 Console.WriteLine("Please enter a number\n");
+                 return 0;
+                 
+            }
         }
 
         public static bool isLeapYear(int year)
